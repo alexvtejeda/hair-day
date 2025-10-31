@@ -7,7 +7,7 @@
 /*        05. Products Page      */
 /*        06. Contact Page       */
 /*        07. Info Page          */
-/*        08.                    */
+/*        08. Responsive Design  */
 /*********************************/
 /*********************************/
 
@@ -332,3 +332,25 @@ footer span{
 /**********************************/
 
 
+/******************************************/
+/********* 08. Responsive Design **********/
+/******************************************/
+
+@media (max-width: 1200px) {
+    header img {
+        width: 25%;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h3 {
+        font-size: 0.8rem;
+    }
+
+
+    footer img{
+        width: 55%;
+    }
+}
