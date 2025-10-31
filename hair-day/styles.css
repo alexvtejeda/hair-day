@@ -1,0 +1,334 @@
+/*********************************/
+/***********  Glossary: **********/
+/*        01. Global Rules       */
+/*        02. CSS Resets         */
+/*        03. Header CSS         */
+/*        04. Home Page          */
+/*        05. Products Page      */
+/*        06. Contact Page       */
+/*        07. Info Page          */
+/*        08.                    */
+/*********************************/
+/*********************************/
+
+
+
+
+/**********************************/
+/******** 01. Global Rules ********/
+/**********************************/
+ 
+:root{
+    /* Colors to play around with in hsl, if you want to use hsla, you can say hsl(var(--your-color) / alphaNumber. See line  243 to see a practical example. */
+    --mono-base: 9 58% 56%;
+    --mono-light-1: 26 55% 89%;
+    --mono-light-2: 9 79% 66%;
+    --mono-light-3: 338 100% 45%;
+
+    --mono-dark-1: 8 15% 52%;
+    --mono-dark-2: 9 7% 40%;
+    --mono-dark-3: 9 17% 23%;
+    --mono-dark-4: 8 29% 15%;
+
+    --mono-muted-1: 26 9% 45%;
+    --mono-muted-2: 25 6% 36%;
+    --mono-muted-3: 26 70% 64%;
+
+    --primary-color: var(--mono-base);
+    --secondary-color: var(--mono-light-1);
+    --primary-accent-color: var(--mono-light-1);
+    --background-color: var(--mono-dark-3);
+    --text-color: var(--mono-light-1);
+    --default-font: "westmountBlack"; 
+}
+
+@font-face {
+    font-family: "westmountBlack";
+    src:
+        local("Wesmount Black"),
+        url(fonts/WestmountBlack.otf) format("opentype"),
+        url(fonts/WestmountBlack.ttf) format("truetype");
+}
+
+@font-face{
+    font-family: "wesmountBold";
+    src:
+        local("Westmount Bold"),
+        url(fonts/WestmountBold.otf) format("opentype"),
+        url(fonts/WestmountBold.ttf) format("truetype");
+
+}
+
+@font-face{
+    font-family: "wesmountLight";
+    src:
+        local("Westmount Light"),
+        url(fonts/WestmountLight.otf) format("opentype"),
+        url(fonts/WestmountLight.ttf) format("truetype");
+}
+
+@font-face{
+    font-family: "wesmountRegular";
+    src:
+        local("Wesmount Regular"),
+        url(fonts/WestmountRegular.otf) format("opentype"),
+        url(fonts/WestmountRegular.ttf) format("truetype");
+}
+
+@font-face{
+    font-family: "wesmountThin";
+    src:
+        local("Wesmount Thin"),
+        url(fonts/WestmountThin.otf) format("opentype"),
+        url(fonts/WestmountThin.ttf) format("truetype");
+}
+
+
+/**********************************/
+/********* 02. CSS Resets *********/
+/**********************************/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: hsl(var(--secondary-color));
+    font-family: var(--default-font);
+    margin: 0 5%;
+}
+
+li::marker{
+    content: none;
+    text-decoration: none;
+}
+
+h1{
+    font-size: 3rem;
+    color: hsl(var(--mono-muted-3));
+}
+
+h2{
+    font-size: 2rem;
+    color: hsl(var(--mono-muted-3) / 0.6);
+}
+
+h3{
+    font-size: 1.3rem;
+}
+
+p {
+    font-size: 1.2rem;
+    font-family: monospace;
+}
+
+
+
+a {
+    text-decoration: none;
+    color: hsl(var(--text-color));
+    font-size: 1.2rem;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: start;
+    gap: 30px;
+    margin-block: 30px;
+}
+
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: hsl(var(--primary-color));
+    padding: 50px;
+    color: hsl(var(--secondary-color));
+    border-radius: 30px 30px 0 0;
+}
+
+footer img {
+    width: 15vw;
+    transition: transform 300ms ease;
+}
+
+footer img:hover{
+    transform: scale(1.05);
+}
+
+
+
+/**********************************/
+/********* 03. Header CSS *********/
+/**********************************/
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: hsl(var(--mono-dark-4));
+    border-radius: 0 0 30px 30px;
+}
+
+header img {
+    width: 10%;
+    align-self: center;
+    align-items: center;
+    animation: wiggle 1.5s;
+}
+
+@keyframes wiggle{
+    0%{transform: rotate(0deg)}
+    25%{transform: rotate(-2.5deg)}
+    50%{transform: rotate(2.5deg)}
+    75%{transform:rotate(-2.5deg)}
+    100%{transform:rotate(0deg)}
+}
+
+header a {
+    display: flex;
+    justify-content: center;
+    margin-block: 30px;
+    transition: transform 300ms ease; 
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    border-radius: 15px;
+}
+
+header a:hover{
+    --mono-light-1: 26 55% 100% / 1;
+    transform: scale(1.01);
+    color: hsl(var(--mono-light-1));
+}
+
+a:focus,
+a:focus-visible{
+    border: solid 1px hsl(var(--primary-color));
+    outline: none;
+    transform: scale(1.01);
+}
+
+
+footer a:focus,
+footer a:focus-visible{
+    border: solid 1px hsl(var(--text-color));
+    outline: none;
+    transform: scale(1.01);
+}
+
+footer span{
+    font-family:monospace;
+}
+
+/**********************************/
+/********* 04. Home Page **********/
+/**********************************/
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 20px;
+    padding: 150px;
+    border-radius: 30px;
+    background: hsl(var(--primary-color));
+    color: hsl(var(--text-color));
+    text-align: start;
+    
+    /* Styling of background images and pseudo-elements*/
+    position: relative;
+    justify-self: stretch;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transform-origin: bottom;
+    transition: transform 500ms ease, color 300ms ease, opacity 250ms ease;
+}
+
+
+.info-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: hsl(var(--background-color) / 0.7);
+    z-index: 0;
+}
+
+.info-card:hover::after{
+    animation: fade-in 250ms ease-in forwards;
+}
+
+@keyframes fade-in {
+    from{transform: scale(0.2);}
+    to{transform: scale(2);background-color: hsl(var(--mono-muted-1) / 0.9 );}
+}
+
+
+.info-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.info-card:hover{
+    transform: scale(1.01);
+}
+
+.promotion-banner{
+    grid-column: 1 / span 3;
+    background-image: url(imgs/promotest.png);
+    background-color: hsl(var(--background-color) / 0.6);
+}
+
+.promotion-banner span {
+    font-family: sans-serif;
+}
+
+.info-card-one {
+    grid-column: 1;
+    background-image: url(imgs/hair.png);
+}
+
+.info-card-two {
+    grid-column: 2;
+    background-image: url(imgs/nails.png);
+}
+
+.info-card-three {
+    grid-column: 3;
+    background-image: url(imgs/bookNow.png);
+}
+
+/**********************************/
+/********* 05. Products Page ******/
+/**********************************/
+
+
+
+
+
+
+/**********************************/
+/********* 06. Contact Page *******/
+/**********************************/
+
+
+
+
+
+
+/**********************************/
+/********* 07. Info Page **********/
+/**********************************/
+
+
